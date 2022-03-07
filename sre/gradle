@@ -1,0 +1,14 @@
+println "start"
+//def env = System.getenv()
+//env['-Pprofile'] // 가져온 목록 중에 PATH에 접근
+//def profile = System.getenv('-Pprofile') // 환경 변수 중 PATH를 가져온다.
+//def profile = project.hasProperty('profile')
+//ext.profile = project.hasProperty('profile')
+//ext.profile = (!project.hasProperty('profile') || !profile) ? 'dev' : profile
+def profile = project.hasProperty('profile') ? project.getProperty('profile') :'local'
+println "profile: $profile"
+println "$profile"
+
+println "end"
+
+gradle bootjar -Pprofile=dev
